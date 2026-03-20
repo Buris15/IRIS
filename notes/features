@@ -1,0 +1,94 @@
+EASY FEATURES (Front-end / Basic functionality)
+| Feature                          | Purpose                                                             |
+| -------------------------------- | ------------------------------------------------------------------- |
+| Mobile-responsive design         | Works on phones and tablets                                         |
+| Dark mode toggle                 | Optional light/dark UI                                              |
+| Drag-and-drop uploads            | Profile pictures or food item images                                |
+| Smooth animations & pop-ups      | Enhance UX                                                          |
+| Likes / reactions                | React to statuses or posts                                          |
+| Commenting                       | Threaded comments on statuses or posts                              |
+| Public/private status toggle     | Users choose who sees their updates                                 |
+| Favorites / wishlist             | Save items for later purchase                                       |
+| Marketplace categories & sorting | Filter by popularity, price, distance, or rating                    |
+| Map filters & layers             | Filter by status, interests, friends, food shops, delivery, commute |
+| Vehicle type display             | Show jeep, bus, bike, or other icons                                |
+| ETA / arrival updates            | Approximate waiting time for each vehicle                           |
+| Multi-device login               | Sync user data across phone, tablet, and desktop                    |
+| Notifications for order updates  | Alerts when food is picked up, near delivery, completed             |
+| Order history                    | Track past food or item orders                                      |
+| Checkout system                  | Payment integration or cash-on-delivery option                      |
+| Story / ephemeral status         | Status disappears after 24 hours                                    |
+| Hashtags & trending topics       | Tag statuses, items, or food shops for search and trends            |
+
+
+MEDIUM FEATURES (Back-end + real-time + interactivity)
+| Feature                        | Purpose                                                            |
+| ------------------------------ | ------------------------------------------------------------------ |
+| WebSocket server               | Real-time updates for chat, statuses, riders, and commute vehicles |
+| Live user location             | Show users’ current positions on the map                           |
+| Route tracking for riders      | Show the exact path delivery riders take                           |
+| Rider dashboard                | Riders view orders & update statuses                               |
+| Rider live tracking            | Users see rider location in real-time                              |
+| Live vehicle tracking          | Users see jeeps/buses moving on the map                            |
+| Map-based notifications        | Alerts when someone of interest enters nearby area                 |
+| Multi-rider handling           | Multiple riders for one order (optional)                           |
+| Search & filter features       | Search users, statuses, or marketplace items                       |
+| User badges / achievements     | Gamification (Top Seller, Popular Poster)                          |
+| Mini polls / events            | Optional interactive features                                      |
+| Friend/follow system           | Connect users and show friends on the map                          |
+| Saved searches / alerts        | Notify users when a food item or item appears                      |
+| Push notifications             | Real-time alerts on mobile and desktop                             |
+| Marketplace bidding / auction  | Let users bid on items for sale                                    |
+| Social challenges / mini-games | Community engagement with map-based games                          |
+| Delivery heatmaps              | Show busiest routes for planning and optimization                  |
+| Commute route planning         | Suggest optimal bus/jeep routes for users                          |
+| Real-time map clustering       | Automatically group markers for crowded areas                      |
+
+
+ADVANCED FEATURES (Analytics, AI, predictive, optimization)
+| Feature                            | Purpose                                                       |
+| ---------------------------------- | ------------------------------------------------------------- |
+| Heatmaps / clustering              | Visualize user density or active areas                        |
+| Route optimization for riders      | Suggest fastest path with traffic consideration               |
+| Auto-location updates              | User or rider location updates every few seconds              |
+| Wallet / virtual currency          | Optional system for in-app purchases or transactions          |
+| Leaderboards                       | Show top users, sellers, or riders                            |
+| Social event creation              | Users can organize or RSVP to map-based events                |
+| Group ordering                     | Multiple users can order food together                        |
+| Analytics export                   | Export trends, orders, or activity for admin review           |
+| Advanced filtering                 | Filter users, statuses, and items by multiple parameters      |
+| Multi-admin roles                  | Different admin levels for moderation, analytics, and support |
+| Scheduled posts / orders           | Users can plan statuses or food deliveries in advance         |
+| Data backup & restore              | Periodic backups of database and uploaded files               |
+| Audit logs                         | Track sensitive actions by users and admins                   |
+| Content moderation tools           | Report / block inappropriate posts, users, or items           |
+| Smart notifications prioritization | Alert only high-priority events first                         |
+| Predictive user engagement         | Suggest activities or posts likely to interest the user       |
+| AI-based content suggestions       | Recommend statuses, friends, or items based on behavior       |
+| AI-powered search                  | Search users, items, or food by image or description          |
+| AI-based fraud detection           | Detect suspicious activity in marketplace or chat             |
+
+
+HARD FEATURES (Cutting-edge / futuristic)
+| Feature                                | Purpose                                                      |
+| -------------------------------------- | ------------------------------------------------------------ |
+| Augmented reality (AR) map             | Overlay users, delivery, or items in real-world view         |
+| VR-compatible map view                 | Optional virtual reality mode for map exploration            |
+| Augmented reality checkout             | Scan a QR code at a food stall or store to pay               |
+| AI-based delivery rerouting            | Automatically optimize rider route in real-time traffic      |
+| Smart friend recommendations           | Suggest friends based on location, interests, and activity   |
+| Item/food auto-categorization          | Automatically tag uploaded items or meals                    |
+| Facial recognition login               | Secure login using facial biometrics                         |
+| AI content moderation                  | Automatically flag offensive posts or comments               |
+| Real-time vehicle capacity tracking    | Track how full jeeps/buses are for commute users             |
+| Crowd density alerts                   | Notify users of busy areas or crowded public transport       |
+| Predictive marketplace recommendations | Suggest items users might want to buy next                   |
+| 3D map views                           | Optional 3D buildings or terrain visualization               |
+| Custom avatar animations               | Animated profile avatars reflecting mood or status           |
+| Mood detection                         | Suggest emojis or stickers based on user text input          |
+| Blockchain transaction history         | Optional secure logging of marketplace/food payments         |
+| Multi-rider optimization               | Algorithm assigns multiple deliveries efficiently to riders  |
+| Gamified delivery challenges           | Riders earn points or rewards for fast deliveries            |
+| AI-powered trend predictions           | Forecast popular items, statuses, or events                  |
+| Adaptive UI layout                     | Automatically adjusts interface based on device and behavior |
+
