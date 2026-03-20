@@ -92,3 +92,16 @@ HARD FEATURES (Cutting-edge / futuristic)
 | Gamified delivery challenges           | Riders earn points or rewards for fast deliveries            | JS, PHP                        |
 | AI-powered trend predictions           | Forecast popular items, statuses, or events                  | Python (ML), PHP, JS           |
 | Adaptive UI layout                     | Automatically adjusts interface based on device and behavior | JS, CSS, PHP                   |
+
+
+MONETIZATION FEATURES (Revenue Streams / Profit)
+| Feature                             | Purpose                                                     | Implementation / Tools Used |
+| ----------------------------------- | ----------------------------------------------------------- | --------------------------- |
+| Marketplace commission              | Earn a percentage on each item sold                         | PHP, SQL, JS                |
+| Delivery / service fees             | Charge per food delivery or item delivery                   | PHP, SQL, JS                |
+| Promoted / featured listings        | Vendors pay to highlight items or shops                     | PHP, JS, SQL                |
+| Subscription / premium plans        | Extra perks for users, vendors, or riders                   | PHP, SQL, JS                |
+| In-app purchases / virtual currency | Buy coins/tokens for gifts, badges, or extra features       | PHP, SQL, JS                |
+| Advertising / sponsored markers     | Local businesses or food shops advertise on map or feed     | JS, PHP, HTML               |
+| Data & analytics insights           | Sell anonymized trends and reports to businesses (optional) | PHP, SQL, JS                |
+| Partner / affiliate programs        | Referral fees from food delivery or marketplace partners    | PHP, JS                     |
