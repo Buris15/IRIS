@@ -1,0 +1,241 @@
+PHASE 0 – FOUNDATION (SETUP)
+
+- Create database
+  HOW: Import sql/create_database.sql in phpMyAdmin
+
+- Create users table
+  HOW: Import sql/users_table.sql
+
+- Setup config.php
+  HOW: Connect to MySQL using mysqli or PDO
+
+- Create functions.php
+  HOW: Add helper functions (sanitize, redirect, session check)
+
+- Build register.php
+  HOW: Form → POST → save user (use password_hash)
+
+- Build login.php
+  HOW: Check user → password_verify → start session
+
+- Add session handling
+  HOW: session_start(); store user_id in $_SESSION
+
+- Test system
+  HOW: Register → Login → Redirect to index.php
+
+
+PHASE 1 – MAP + STATUS (CORE FEATURE)
+
+- Create index.php
+  HOW: Main page with map container
+
+- Setup map.js
+  HOW: Initialize map using Leaflet or Google Maps
+
+- Setup map.css
+  HOW: Make map full screen (height: 100vh)
+
+- Create status API
+  FILE: api/status.php
+  HOW: Handle add + fetch status
+
+- Create statuses table
+  HOW: Import sql/statuses_table.sql
+
+- Add status form
+  HOW: Input + button → send data using fetch/AJAX
+
+- Show markers on map
+  HOW: Fetch statuses → loop → add markers
+
+
+PHASE 2 – SOCIAL FEATURES
+
+- Create chat system
+  FILE: api/chat.php
+  HOW: Send and fetch messages
+
+- Create chat page
+  FILE: chat.php
+  HOW: UI with message list + input
+
+- Setup chat.js
+  HOW: Send messages + auto-refresh
+
+- Add likes
+  HOW: Button → send to API → update count
+
+- Add comments
+  HOW: Save comment → display under post
+
+- Add friend system
+  HOW: Add/accept friend → store in DB
+
+- Import tables
+  sql/chats_table.sql
+  sql/friends_table.sql
+
+
+PHASE 3 – MARKETPLACE
+
+- Create items table
+  HOW: Import sql/items_table.sql
+
+- Create items API
+  FILE: api/items_api.php
+  HOW: Add, fetch, delete items
+
+- Setup market.js
+  HOW: Fetch items → display cards
+
+- Setup market.css
+  HOW: Grid layout
+
+- Add item upload
+  HOW: Form + image → save in upload/items/
+
+- Show items list
+  HOW: Loop items → display
+
+- Add wishlist
+  HOW: Save item_id + user_id
+
+- Basic checkout
+  HOW: Select item → confirm order
+
+
+PHASE 4 – FOOD MODULE
+
+- Import food tables
+  sql/food_items_table.sql
+  sql/food_orders_table.sql
+
+- Create food API
+  FILE: api/food_api.php
+
+- Build pages
+  food_market.php → list food
+  food_item.php → item details
+  food_cart.php → selected items
+  food_checkout.php → confirm order
+  food_order_history.php → past orders
+
+- Setup food.js + food.css
+
+
+PHASE 5 – DELIVERY SYSTEM
+
+- Import tables
+  sql/riders_table.sql
+  sql/delivery_orders_table.sql
+
+- Create APIs
+  delivery_api.php → handle orders
+  rider_location_api.php → update location
+
+- Build pages
+  delivery_rider.php → rider dashboard
+  delivery_tracking.php → tracking map
+
+- Show tracking
+  HOW: Fetch rider location → update map marker
+
+
+PHASE 6 – COMMUTE SYSTEM
+
+- Import table
+  sql/commute_vehicles_table.sql
+
+- Create commute API
+  FILE: api/commute_api.php
+
+- Build commute_map.php
+  HOW: Show vehicles on map
+
+- Setup commute.js
+  HOW: Fetch vehicle locations
+
+- Add ETA
+  HOW: distance ÷ speed
+
+
+PHASE 7 – REAL-TIME SYSTEM
+
+- Create WebSocket server
+  FILE: realtime/server.js
+  HOW: Use Node.js + Socket.IO
+
+- Connect features
+  chat.js → real-time messages
+  map.js → live markers
+  delivery.js → live rider tracking
+  commute.js → live vehicles
+
+
+PHASE 8 – NOTIFICATIONS
+
+- Import notifications table
+  sql/notifications_table.sql
+
+- Create API
+  FILE: api/notifications_api.php
+
+- Setup notifications.js
+  HOW: Fetch or listen via WebSocket
+
+- Add alerts
+  Messages, orders, delivery updates
+
+
+PHASE 9 – MONETIZATION
+
+- Add commission
+  HOW: Deduct % in items_api.php
+
+- Add delivery fee
+  HOW: Fixed or distance-based
+
+- Add featured items
+  HOW: Flag items as promoted
+
+- Add subscription (optional)
+  HOW: Premium users table
+
+
+PHASE 10 – ADVANCED FEATURES
+
+- Add heatmap
+  HOW: Use Leaflet plugin
+
+- Add clustering
+  HOW: Group nearby markers
+
+- Add admin dashboard
+  FILE: admin.php
+
+- Add analytics
+  HOW: Track users, orders, activity
+
+
+PHASE 11 – AI (OPTIONAL)
+
+- Create AI scripts
+  ai/recommendation.py
+  ai/fraud_detection.py
+
+- Connect to PHP
+  HOW: API call or exec()
+
+- Add suggestions
+  HOW: Based on user behavior
+
+
+PHASE 12 – FUTURE FEATURES
+
+- Add AR map
+- Add 3D map
+- Add facial login
+- Add blockchain
+
+HOW: Use external libraries/APIs

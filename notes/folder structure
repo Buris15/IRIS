@@ -1,0 +1,119 @@
+IRIS/
+│
+├── api/
+│   ├── chat.php
+│   ├── commute_api.php
+│   ├── delivery_api.php
+│   ├── food_api.php
+│   ├── items_api.php
+│   ├── rider_location_api.php
+│   ├── status.php
+│   ├── users.php
+│   └── notifications_api.php
+│
+├── auth/
+│   ├── login_handler.php
+│   ├── logout.php
+│   └── check_session.php
+│
+├── middleware/
+│   ├── auth_middleware.php
+│   └── admin_middleware.php
+│
+├── realtime/
+│   └── server.js
+│
+├── ai/
+│   ├── recommendation.py
+│   └── fraud_detection.py
+│
+├── assets/
+│   ├── icons/
+│   ├── fonts/
+│   ├── images/
+│   └── notes/
+│
+├── commute/
+│   └── pages/
+│       └── commute_map.php
+│
+├── delivery/
+│   └── pages/
+│       ├── delivery_rider.php
+│       └── delivery_tracking.php
+│
+├── food/
+│   └── pages/
+│       ├── food_cart.php
+│       ├── food_checkout.php
+│       ├── food_item.php
+│       ├── food_market.php
+│       └── food_order_history.php
+│
+├── css/
+│   ├── admin.css
+│   ├── chat.css
+│   ├── commute.css
+│   ├── delivery.css
+│   ├── food.css
+│   ├── map.css
+│   ├── market.css
+│   ├── status.css
+│   ├── style.css
+│   └── support.css
+│
+├── js/
+│   ├── admin.js
+│   ├── chat.js
+│   ├── commute.js
+│   ├── delivery.js
+│   ├── food.js
+│   ├── main.js
+│   ├── map.js
+│   ├── market.js
+│   ├── status.js
+│   ├── support.js
+│   └── notifications.js
+│
+├── sql/
+│   ├── create_database.sql
+│   ├── users_table.sql
+│   ├── statuses_table.sql
+│   ├── chats_table.sql
+│   ├── friends_table.sql
+│   ├── items_table.sql
+│   ├── food_items_table.sql
+│   ├── food_orders_table.sql
+│   ├── delivery_orders_table.sql
+│   ├── riders_table.sql
+│   ├── commute_vehicles_table.sql
+│   ├── notifications_table.sql
+│   └── seed_data.sql
+│
+├── upload/
+│   ├── profile/
+│   ├── items/
+│   ├── food/
+│   └── vehicle_icons/
+│
+├── logs/
+│   └── error.log
+│
+├── notes/
+│   ├── features
+│   └── folder structure
+│
+├── admin.php
+├── config.php
+├── functions.php
+├── index.php
+├── login.php
+├── register.php
+├── forgot_password.php
+├── forgot_username.php
+├── support.php
+├── chat.php
+├── home.php
+├── dashboard.php
+├── README.md
+└── .env
