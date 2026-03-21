@@ -3,239 +3,249 @@ PHASE 0 – FOUNDATION (SETUP)
 - Create database
   HOW: Import sql/create_database.sql in phpMyAdmin
 
-- Create users table
-  HOW: Import sql/users_table.sql
+- Create users + recovery tables
+  HOW:
+  - Import sql/users_table.sql
+  - Add email + secret_code fields
+  - Import sql/password_resets_table.sql
 
 - Setup config.php
-  HOW: Connect to MySQL using mysqli or PDO
+  HOW: Connect to MySQL (mysqli/PDO) + use .env for credentials
 
 - Create functions.php
-  HOW: Add helper functions (sanitize, redirect, session check)
+  HOW: Add clean(), redirect(), isLoggedIn()
 
-- Build register.php
-  HOW: Form → POST → save user (use password_hash)
+- Setup auth system (IMPORTANT)
+  FILES:
+  - auth/login_handler.php
+  - auth/register_handler.php
+  - auth/logout.php
+  - auth/check_session.php
+  HOW:
+  - Move all login/register logic here
+  - Keep login.php & register.php as UI only
 
-- Build login.php
-  HOW: Check user → password_verify → start session
+- Build register.php (UI only)
+  HOW:
+  - Form: username, email, password, secret_code
+  - Form action → auth/register_handler.php
+
+- Build login.php (UI only)
+  HOW:
+  - Form: username + password
+  - Form action → auth/login_handler.php
 
 - Add session handling
-  HOW: session_start(); store user_id in $_SESSION
+  HOW:
+  - session_start() in functions.php
+  - Store user_id in $_SESSION
+
+- Setup forgot system (NEW)
+  FILES:
+  - forgot_password.php (UI)
+  - forgot_username.php (UI)
+  - auth/forgot_password_handler.php
+  - auth/forgot_username_handler.php
+  HOW:
+  - Verify using secret_code OR email
+
+- Setup email system (OPTIONAL but IMPORTANT)
+  FILES:
+  - mail/send_email.php
+  - verify_code.php
+  - reset_password.php
+  HOW:
+  - Generate OTP → store in password_resets_table
+  - Send via PHPMailer
+  - Verify → allow reset
 
 - Test system
-  HOW: Register → Login → Redirect to index.php
+  HOW:
+  - Register → Login → Redirect to index.php
+  - Test forgot password (secret code)
+  - Test email reset (if implemented)
 
 
 PHASE 1 – MAP + STATUS (CORE FEATURE)
+- Protect index.php
+  HOW: Use middleware/auth_middleware.php
 
 - Create index.php
   HOW: Main page with map container
 
 - Setup map.js
-  HOW: Initialize map using Leaflet or Google Maps
+  HOW: Initialize map (Leaflet or Google Maps)
 
 - Setup map.css
-  HOW: Make map full screen (height: 100vh)
+  HOW: Fullscreen map (height: 100vh)
 
 - Create status API
   FILE: api/status.php
-  HOW: Handle add + fetch status
+  HOW: CRUD (add + fetch)
 
 - Create statuses table
   HOW: Import sql/statuses_table.sql
 
 - Add status form
-  HOW: Input + button → send data using fetch/AJAX
+  HOW: Send via fetch → api/status.php
 
-- Show markers on map
-  HOW: Fetch statuses → loop → add markers
+- Show markers
+  HOW: Fetch → loop → display on map
+
 
 
 PHASE 2 – SOCIAL FEATURES
-
-- Create chat system
-  FILE: api/chat.php
-  HOW: Send and fetch messages
-
-- Create chat page
-  FILE: chat.php
-  HOW: UI with message list + input
-
-- Setup chat.js
-  HOW: Send messages + auto-refresh
-
-- Add likes
-  HOW: Button → send to API → update count
-
-- Add comments
-  HOW: Save comment → display under post
-
-- Add friend system
-  HOW: Add/accept friend → store in DB
-
 - Import tables
   sql/chats_table.sql
   sql/friends_table.sql
 
+- Create chat API
+  FILE: api/chat.php
+
+- Build chat.php
+  HOW: Message UI
+
+- Setup chat.js
+  HOW: Send + auto-refresh (later WebSocket)
+
+- Add likes + comments
+  HOW: Extend api/status.php
+
+- Add friend system
+  HOW: Store relationships in DB
+
+
 
 PHASE 3 – MARKETPLACE
-
-- Create items table
-  HOW: Import sql/items_table.sql
+- Import items table
+  sql/items_table.sql
 
 - Create items API
   FILE: api/items_api.php
-  HOW: Add, fetch, delete items
 
-- Setup market.js
-  HOW: Fetch items → display cards
-
-- Setup market.css
-  HOW: Grid layout
+- Setup market.js + market.css
 
 - Add item upload
-  HOW: Form + image → save in upload/items/
+  HOW: Store images in upload/items/
 
-- Show items list
-  HOW: Loop items → display
-
+- Display items
 - Add wishlist
-  HOW: Save item_id + user_id
+- Add checkout (basic)
 
-- Basic checkout
-  HOW: Select item → confirm order
 
 
 PHASE 4 – FOOD MODULE
-
-- Import food tables
+- Import tables
   sql/food_items_table.sql
   sql/food_orders_table.sql
 
-- Create food API
+- Create API
   FILE: api/food_api.php
 
 - Build pages
-  food_market.php → list food
-  food_item.php → item details
-  food_cart.php → selected items
-  food_checkout.php → confirm order
-  food_order_history.php → past orders
+  food_market.php
+  food_item.php
+  food_cart.php
+  food_checkout.php
+  food_order_history.php
 
 - Setup food.js + food.css
 
 
-PHASE 5 – DELIVERY SYSTEM
 
+PHASE 5 – DELIVERY SYSTEM
 - Import tables
   sql/riders_table.sql
   sql/delivery_orders_table.sql
 
 - Create APIs
-  delivery_api.php → handle orders
-  rider_location_api.php → update location
+  api/delivery_api.php
+  api/rider_location_api.php
 
 - Build pages
-  delivery_rider.php → rider dashboard
-  delivery_tracking.php → tracking map
+  delivery_rider.php
+  delivery_tracking.php
 
-- Show tracking
-  HOW: Fetch rider location → update map marker
+- Implement tracking
+  HOW: Update + fetch rider location
+
 
 
 PHASE 6 – COMMUTE SYSTEM
-
 - Import table
   sql/commute_vehicles_table.sql
 
-- Create commute API
-  FILE: api/commute_api.php
+- Create API
+  api/commute_api.php
 
 - Build commute_map.php
-  HOW: Show vehicles on map
-
 - Setup commute.js
-  HOW: Fetch vehicle locations
-
 - Add ETA
   HOW: distance ÷ speed
 
 
+
 PHASE 7 – REAL-TIME SYSTEM
-
-- Create WebSocket server
+- Setup WebSocket server
   FILE: realtime/server.js
-  HOW: Use Node.js + Socket.IO
 
-- Connect features
-  chat.js → real-time messages
-  map.js → live markers
-  delivery.js → live rider tracking
-  commute.js → live vehicles
+- Connect:
+  chat.js
+  map.js
+  delivery.js
+  commute.js
+
+- Replace polling with real-time updates
+
 
 
 PHASE 8 – NOTIFICATIONS
-
-- Import notifications table
+- Import table
   sql/notifications_table.sql
 
 - Create API
-  FILE: api/notifications_api.php
+  api/notifications_api.php
 
 - Setup notifications.js
-  HOW: Fetch or listen via WebSocket
 
-- Add alerts
-  Messages, orders, delivery updates
+- Add alerts:
+  messages, orders, delivery
+
 
 
 PHASE 9 – MONETIZATION
-
-- Add commission
-  HOW: Deduct % in items_api.php
+- Add commission system
+  HOW: Modify items_api.php
 
 - Add delivery fee
-  HOW: Fixed or distance-based
+- Add promoted listings
+- Add subscription system
 
-- Add featured items
-  HOW: Flag items as promoted
-
-- Add subscription (optional)
-  HOW: Premium users table
 
 
 PHASE 10 – ADVANCED FEATURES
+- Add heatmaps (map.js)
+- Add clustering (map.js)
 
-- Add heatmap
-  HOW: Use Leaflet plugin
+- Expand admin.php
+  HOW: Manage users, reports, data
 
-- Add clustering
-  HOW: Group nearby markers
+- Add analytics tracking
 
-- Add admin dashboard
-  FILE: admin.php
-
-- Add analytics
-  HOW: Track users, orders, activity
 
 
 PHASE 11 – AI (OPTIONAL)
+- Use ai/
+  recommendation.py
+  fraud_detection.py
 
-- Create AI scripts
-  ai/recommendation.py
-  ai/fraud_detection.py
+- Connect via API or exec()
+- Add smart suggestions
 
-- Connect to PHP
-  HOW: API call or exec()
-
-- Add suggestions
-  HOW: Based on user behavior
 
 
 PHASE 12 – FUTURE FEATURES
-
-- Add AR map
-- Add 3D map
-- Add facial login
+- Add AR / 3D map
+- Add facial recognition
 - Add blockchain
-
-HOW: Use external libraries/APIs
+HOW: External APIs / libraries
