@@ -9,12 +9,17 @@ IRIS/
 │   ├── rider_location_api.php
 │   ├── status.php
 │   ├── users.php
-│   └── notifications_api.php
+│   ├── notifications_api.php
+│   └── auth_api.php                // NEW → login/register via API (optional future)
 │
 ├── auth/
 │   ├── login_handler.php
+│   ├── register_handler.php       // NEW → move register logic here
 │   ├── logout.php
-│   └── check_session.php
+│   ├── check_session.php
+│   ├── forgot_password_handler.php // NEW → logic only
+│   ├── forgot_username_handler.php // NEW → logic only
+│   └── reset_code_handler.php     // NEW → email/OTP verification
 │
 ├── middleware/
 │   ├── auth_middleware.php
@@ -26,6 +31,12 @@ IRIS/
 ├── ai/
 │   ├── recommendation.py
 │   └── fraud_detection.py
+│
+├── mail/                          // NEW → email system
+│   ├── send_email.php             // PHPMailer setup
+│   └── templates/
+│       ├── reset_password.html
+│       └── verification_code.html
 │
 ├── assets/
 │   ├── icons/
@@ -88,6 +99,7 @@ IRIS/
 │   ├── riders_table.sql
 │   ├── commute_vehicles_table.sql
 │   ├── notifications_table.sql
+│   ├── password_resets_table.sql   // NEW → for email codes
 │   └── seed_data.sql
 │
 ├── upload/
@@ -97,7 +109,8 @@ IRIS/
 │   └── vehicle_icons/
 │
 ├── logs/
-│   └── error.log
+│   ├── error.log
+│   └── activity.log               // NEW → track logins, actions
 │
 ├── notes/
 │   ├── features
@@ -115,5 +128,8 @@ IRIS/
 ├── chat.php
 ├── home.php
 ├── dashboard.php
+├── verify_code.php               // NEW → input email code
+├── reset_password.php            // NEW → after verification
 ├── README.md
-└── .env
+├── .env
+└── .htaccess                     // NEW → security + clean URLs
