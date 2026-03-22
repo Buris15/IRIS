@@ -113,6 +113,5 @@
 | Featured listings            | Paid promotions                  | PHP, JS        |
 | Subscription plans           | Premium features                 | PHP, SQL       |
 | In-app currency              | Virtual coins                    | PHP, SQL       |
-| Ads / sponsored content      | Business promotion               | JS, PHP        |
 | Data analytics insights      | Sell system data                 | PHP, SQL       |
 | Affiliate programs           | Referral earnings                | PHP            |
