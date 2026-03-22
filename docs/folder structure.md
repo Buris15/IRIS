@@ -1,26 +1,31 @@
 IRIS/
 │
+├── core/                     ← NEW (important)
+│   ├── config.php
+│   ├── functions.php
+│   └── helpers.php
+│
 ├── api/
-│   ├── chat.php
+│   ├── chat_api.php
 │   ├── commute_api.php
 │   ├── delivery_api.php
 │   ├── food_api.php
 │   ├── items_api.php
 │   ├── rider_location_api.php
-│   ├── posts_api.php            ← renamed (was status.php)
-│   ├── user_status_api.php      ← NEW (for mood)
-│   ├── users.php
+│   ├── posts_api.php
+│   ├── user_status_api.php
+│   ├── users_api.php        ← FIXED (was users.php)
 │   ├── notifications_api.php
-│   └── auth_api.php       
+│   └── auth_api.php
 │
 ├── auth/
 │   ├── login_handler.php
-│   ├── register_handler.php 
+│   ├── register_handler.php
 │   ├── logout.php
 │   ├── check_session.php
-│   ├── forgot_password_handler.php 
-│   ├── forgot_username_handler.php 
-│   └── reset_code_handler.php 
+│   ├── forgot_password_handler.php
+│   ├── forgot_username_handler.php
+│   └── reset_code_handler.php
 │
 ├── middleware/
 │   ├── auth_middleware.php
@@ -33,8 +38,8 @@ IRIS/
 │   ├── recommendation.py
 │   └── fraud_detection.py
 │
-├── mail/                   
-│   ├── send_email.php        
+├── mail/
+│   ├── send_email.php
 │   └── templates/
 │       ├── reset_password.html
 │       └── verification_code.html
@@ -42,20 +47,36 @@ IRIS/
 ├── assets/
 │   ├── icons/
 │   ├── fonts/
-│   ├── images/
-│   └── notes/
+│   └── images/
 │
-├── commute/
-│   └── pages/
-│       └── commute_map.php
+├── uploads/                 ← FIXED (was upload/)
+│   ├── profile/
+│   ├── items/
+│   ├── food/
+│   └── vehicle_icons/
 │
-├── delivery/
-│   └── pages/
-│       ├── delivery_rider.php
-│       └── delivery_tracking.php
+├── pages/                   ← NEW (IMPORTANT FIX)
+│   ├── admin.php
+│   ├── home.php
+│   ├── dashboard.php
+│   ├── support.php
+│   ├── chat.php
+│   ├── login.php
+│   ├── register.php
+│   ├── forgot_password.php
+│   ├── forgot_username.php
+│   ├── verify_code.php
+│   └── reset_password.php
 │
-├── food/
-│   └── pages/
+├── modules/                 ← NEW (feature grouping)
+│   ├── commute/
+│   │   └── commute_map.php
+│   │
+│   ├── delivery/
+│   │   ├── delivery_rider.php
+│   │   └── delivery_tracking.php
+│   │
+│   └── food/
 │       ├── food_cart.php
 │       ├── food_checkout.php
 │       ├── food_item.php
@@ -70,7 +91,7 @@ IRIS/
 │   ├── food.css
 │   ├── map.css
 │   ├── market.css
-│   ├── post.css              ← renamed (was status.css)
+│   ├── post.css
 │   ├── style.css
 │   └── support.css
 │
@@ -83,16 +104,16 @@ IRIS/
 │   ├── main.js
 │   ├── map.js
 │   ├── market.js
-│   ├── post.js               ←  renamed (was status.js)
-│   ├── user_status.js        ←  NEW (for mood)
+│   ├── post.js
+│   ├── user_status.js
 │   ├── support.js
 │   └── notifications.js
 │
-├── sql/
+├── database/               ← FIXED (better name than sql/)
 │   ├── create_database.sql
 │   ├── users_table.sql
-│   ├── posts_table.sql       ← renamed (was statuses_table.sql)
-│   ├── user_status_table.sql ← NEW
+│   ├── posts_table.sql
+│   ├── user_status_table.sql
 │   ├── chats_table.sql
 │   ├── friends_table.sql
 │   ├── items_table.sql
@@ -102,37 +123,18 @@ IRIS/
 │   ├── riders_table.sql
 │   ├── commute_vehicles_table.sql
 │   ├── notifications_table.sql
-│   ├── password_resets_table.sql  
+│   ├── password_resets_table.sql
 │   └── seed_data.sql
-│
-├── upload/
-│   ├── profile/
-│   ├── items/
-│   ├── food/
-│   └── vehicle_icons/
 │
 ├── logs/
 │   ├── error.log
-│   └── activity.log          
+│   └── activity.log
 │
-├── notes/
-│   ├── features
-│   └── folder structure
+├── docs/                   ← FIXED (was notes/)
+│   ├── features.md
+│   └── folder_structure.md
 │
-├── admin.php
-├── config.php
-├── functions.php
-├── index.php
-├── login.php
-├── register.php
-├── forgot_password.php
-├── forgot_username.php
-├── support.php
-├── chat.php
-├── home.php
-├── dashboard.php
-├── verify_code.php             
-├── reset_password.php        
-├── README.md
+├── index.php               ← ONLY entry point
 ├── .env
-└── .htaccess
+├── .htaccess
+└── README.md
