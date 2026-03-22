@@ -7,19 +7,20 @@ IRIS/
 │   ├── food_api.php
 │   ├── items_api.php
 │   ├── rider_location_api.php
-│   ├── status.php
+│   ├── posts_api.php            ← renamed (was status.php)
+│   ├── user_status_api.php      ← NEW (for mood)
 │   ├── users.php
 │   ├── notifications_api.php
-│   └── auth_api.php                // NEW → login/register via API (optional future)
+│   └── auth_api.php       
 │
 ├── auth/
 │   ├── login_handler.php
-│   ├── register_handler.php       // NEW → move register logic here
+│   ├── register_handler.php 
 │   ├── logout.php
 │   ├── check_session.php
-│   ├── forgot_password_handler.php // NEW → logic only
-│   ├── forgot_username_handler.php // NEW → logic only
-│   └── reset_code_handler.php     // NEW → email/OTP verification
+│   ├── forgot_password_handler.php 
+│   ├── forgot_username_handler.php 
+│   └── reset_code_handler.php 
 │
 ├── middleware/
 │   ├── auth_middleware.php
@@ -32,8 +33,8 @@ IRIS/
 │   ├── recommendation.py
 │   └── fraud_detection.py
 │
-├── mail/                          // NEW → email system
-│   ├── send_email.php             // PHPMailer setup
+├── mail/                   
+│   ├── send_email.php        
 │   └── templates/
 │       ├── reset_password.html
 │       └── verification_code.html
@@ -69,7 +70,7 @@ IRIS/
 │   ├── food.css
 │   ├── map.css
 │   ├── market.css
-│   ├── status.css
+│   ├── post.css              ← renamed (was status.css)
 │   ├── style.css
 │   └── support.css
 │
@@ -82,14 +83,16 @@ IRIS/
 │   ├── main.js
 │   ├── map.js
 │   ├── market.js
-│   ├── status.js
+│   ├── post.js               ←  renamed (was status.js)
+│   ├── user_status.js        ←  NEW (for mood)
 │   ├── support.js
 │   └── notifications.js
 │
 ├── sql/
 │   ├── create_database.sql
 │   ├── users_table.sql
-│   ├── statuses_table.sql
+│   ├── posts_table.sql       ← renamed (was statuses_table.sql)
+│   ├── user_status_table.sql ← NEW
 │   ├── chats_table.sql
 │   ├── friends_table.sql
 │   ├── items_table.sql
@@ -99,7 +102,7 @@ IRIS/
 │   ├── riders_table.sql
 │   ├── commute_vehicles_table.sql
 │   ├── notifications_table.sql
-│   ├── password_resets_table.sql   // NEW → for email codes
+│   ├── password_resets_table.sql  
 │   └── seed_data.sql
 │
 ├── upload/
@@ -110,7 +113,7 @@ IRIS/
 │
 ├── logs/
 │   ├── error.log
-│   └── activity.log               // NEW → track logins, actions
+│   └── activity.log          
 │
 ├── notes/
 │   ├── features
@@ -128,8 +131,8 @@ IRIS/
 ├── chat.php
 ├── home.php
 ├── dashboard.php
-├── verify_code.php               // NEW → input email code
-├── reset_password.php            // NEW → after verification
+├── verify_code.php             
+├── reset_password.php        
 ├── README.md
 ├── .env
-└── .htaccess                     // NEW → security + clean URLs
+└── .htaccess
