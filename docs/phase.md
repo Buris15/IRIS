@@ -1,251 +1,279 @@
-PHASE 0 – FOUNDATION (SETUP)
+# IRIS DEVELOPMENT ROADMAP
 
-- Create database
-  HOW: Import sql/create_database.sql in phpMyAdmin
+---
 
-- Create users + recovery tables
-  HOW:
-  - Import sql/users_table.sql
-  - Add email + secret_code fields
-  - Import sql/password_resets_table.sql
+## PHASE 0 – FOUNDATION (SETUP)
 
-- Setup config.php
-  HOW: Connect to MySQL (mysqli/PDO) + use .env for credentials
+**Database Setup**
+- Create database  
+  HOW: Import `database/create_database.sql` in phpMyAdmin
 
-- Create functions.php
-  HOW: Add clean(), redirect(), isLoggedIn()
+- Create users + recovery tables  
+  HOW:  
+  - Import `database/users_table.sql`  
+  - Add `email` + `secret_code` fields  
+  - Import `database/password_resets_table.sql`
 
-- Setup auth system (IMPORTANT)
-  FILES:
-  - auth/login_handler.php
-  - auth/register_handler.php
-  - auth/logout.php
-  - auth/check_session.php
-  HOW:
-  - Move all login/register logic here
-  - Keep login.php & register.php as UI only
+**Core System**
+- Setup `core/config.php`  
+  HOW: Connect to MySQL (mysqli/PDO) + use `.env` for credentials
 
-- Build register.php (UI only)
-  HOW:
-  - Form: username, email, password, secret_code
-  - Form action → auth/register_handler.php
+- Setup `core/functions.php`  
+  HOW: Add `clean()`, `redirect()`, `isLoggedIn()` + `session_start()`
 
-- Build login.php (UI only)
-  HOW:
-  - Form: username + password
-  - Form action → auth/login_handler.php
+- Setup `core/helpers.php`  
+  HOW: Add reusable helper functions
 
-- Add session handling
-  HOW:
-  - session_start() in functions.php
-  - Store user_id in $_SESSION
+- Setup `core/response.php`  
+  HOW: Handle standardized JSON responses
 
-- Setup forgot system (NEW)
-  FILES:
-  - forgot_password.php (UI)
-  - forgot_username.php (UI)
-  - auth/forgot_password_handler.php
-  - auth/forgot_username_handler.php
-  HOW:
-  - Verify using secret_code OR email
+**Authentication System**
+- Setup auth handlers  
+  FILES:  
+  - `auth/login_handler.php`  
+  - `auth/register_handler.php`  
+  - `auth/logout.php`  
+  - `auth/check_session.php`  
+  HOW: Move all login/register logic here; keep UI pages in `pages/login.php` & `pages/register.php` only
 
-- Setup email system (OPTIONAL but IMPORTANT)
-  FILES:
-  - mail/send_email.php
-  - verify_code.php
-  - reset_password.php
-  HOW:
-  - Generate OTP → store in password_resets_table
-  - Send via PHPMailer
-  - Verify → allow reset
+- Build `pages/register.php` (UI only)  
+  HOW: Form with username, email, password, secret_code → action `auth/register_handler.php`
 
-- Test system
-  HOW:
-  - Register → Login → Redirect to index.php
-  - Test forgot password (secret code)
-  - Test email reset (if implemented)
+- Build `pages/login.php` (UI only)  
+  HOW: Form with username + password → action `auth/login_handler.php`
 
+**Forgot / Reset System**
+- Setup forgot system  
+  FILES:  
+  - `pages/forgot_password.php`  
+  - `pages/forgot_username.php`  
+  - `auth/forgot_password_handler.php`  
+  - `auth/forgot_username_handler.php`  
+  - `auth/reset_code_handler.php`  
+  HOW: Verify using secret_code OR email; generate OTP → store in `password_resets_table`
 
-PHASE 1 – MAP + STATUS (CORE FEATURE)
-- Protect index.php
-  HOW: Use middleware/auth_middleware.php
+- Setup email system (optional)  
+  FILES:  
+  - `mail/send_email.php`  
+  - `pages/verify_code.php`  
+  - `pages/reset_password.php`  
+  HOW: Send OTP via PHPMailer → verify → allow reset
 
-- Create index.php
-  HOW: Main page with map container
+**Upload System**
+- Setup uploads  
+  FILES:  
+  - `api/upload_api.php`  
+  - `js/upload.js`  
+  - `uploads/profile/`, `uploads/items/`, `uploads/food/`, `uploads/vehicle_icons/`  
+  HOW: Implement drag-and-drop → test file storage + retrieval
 
-- Setup map.js
+**Testing**
+- HOW: Register → Login → Redirect to `pages/index.php`; test forgot/reset; test file uploads
+
+---
+
+## PHASE 1 – MAP + STATUS (CORE FEATURE)
+
+- Protect `index.php`  
+  HOW: Include `middleware/auth_middleware.php`
+
+- Create `pages/index.php` as main map page
+
+- Setup `js/map.js`  
   HOW: Initialize map (Leaflet or Google Maps)
 
-- Setup map.css
+- Setup `css/map.css`  
   HOW: Fullscreen map (height: 100vh)
 
-- Create status API
-  FILE: api/status.php
-  HOW: CRUD (add + fetch)
+- Create user status API  
+  FILE: `api/user_status_api.php`  
+  HOW: CRUD operations (add, fetch)
 
-- Create statuses table
-  HOW: Import sql/statuses_table.sql
+- Create statuses table  
+  HOW: Import `database/user_status_table.sql`
 
-- Add status form
-  HOW: Send via fetch → api/status.php
+- Add status form  
+  HOW: Send via fetch → `api/user_status_api.php`
 
-- Show markers
-  HOW: Fetch → loop → display on map
+- Show markers on map  
+  HOW: Fetch statuses → loop → display with popups
 
+---
 
+## PHASE 2 – SOCIAL FEATURES
 
-PHASE 2 – SOCIAL FEATURES
-- Import tables
-  sql/chats_table.sql
-  sql/friends_table.sql
+- Import tables  
+  `database/chats_table.sql`  
+  `database/friends_table.sql`  
+  `database/posts_table.sql`
 
-- Create chat API
-  FILE: api/chat.php
+- Create APIs  
+  - `api/chat_api.php`  
+  - `api/posts_api.php`
 
-- Build chat.php
-  HOW: Message UI
+- Build chat page  
+  FILE: `pages/chat.php`  
+  HOW: Display messages UI
 
-- Setup chat.js
-  HOW: Send + auto-refresh (later WebSocket)
+- Setup `js/chat.js`  
+  HOW: Send messages + auto-refresh (later WebSocket)
 
-- Add likes + comments
-  HOW: Extend api/status.php
+- Add likes + comments  
+  HOW: Extend `api/user_status_api.php` / `api/posts_api.php`
 
-- Add friend system
-  HOW: Store relationships in DB
+- Add friend system  
+  HOW: Store relationships in database
 
+---
 
+## PHASE 3 – MARKETPLACE
 
-PHASE 3 – MARKETPLACE
-- Import items table
-  sql/items_table.sql
+- Import items table  
+  `database/items_table.sql`
 
-- Create items API
-  FILE: api/items_api.php
+- Create items API  
+  FILE: `api/items_api.php`
 
-- Setup market.js + market.css
+- Setup frontend  
+  `js/market.js` + `css/market.css`
 
-- Add item upload
-  HOW: Store images in upload/items/
+- Add item upload  
+  HOW: Store images in `uploads/items/`
 
-- Display items
-- Add wishlist
-- Add checkout (basic)
+- Display items, wishlist, basic checkout  
+  HOW: Test upload → view → wishlist → checkout flows
 
+---
 
+## PHASE 4 – FOOD MODULE
 
-PHASE 4 – FOOD MODULE
-- Import tables
-  sql/food_items_table.sql
-  sql/food_orders_table.sql
+- Import tables  
+  `database/food_items_table.sql`  
+  `database/food_orders_table.sql`
 
-- Create API
-  FILE: api/food_api.php
+- Create API  
+  FILE: `api/food_api.php`
 
-- Build pages
-  food_market.php
-  food_item.php
-  food_cart.php
-  food_checkout.php
-  food_order_history.php
+- Build food pages (modules/food/)  
+  - `food_market.php`  
+  - `food_item.php`  
+  - `food_cart.php`  
+  - `food_checkout.php`  
+  - `food_order_history.php`
 
-- Setup food.js + food.css
+- Setup frontend  
+  `js/food.js` + `css/food.css`  
+  HOW: Test adding to cart, checkout, order history
 
+---
 
+## PHASE 5 – DELIVERY SYSTEM
 
-PHASE 5 – DELIVERY SYSTEM
-- Import tables
-  sql/riders_table.sql
-  sql/delivery_orders_table.sql
+- Import tables  
+  `database/riders_table.sql`  
+  `database/delivery_orders_table.sql`
 
-- Create APIs
-  api/delivery_api.php
-  api/rider_location_api.php
+- Create APIs  
+  - `api/delivery_api.php`  
+  - `api/rider_location_api.php`
 
-- Build pages
-  delivery_rider.php
-  delivery_tracking.php
+- Build pages (modules/delivery/)  
+  - `delivery_rider.php`  
+  - `delivery_tracking.php`
 
-- Implement tracking
-  HOW: Update + fetch rider location
+- Implement tracking  
+  HOW: Update + fetch rider location in real-time
 
+---
 
+## PHASE 6 – COMMUTE SYSTEM
 
-PHASE 6 – COMMUTE SYSTEM
-- Import table
-  sql/commute_vehicles_table.sql
+- Import table  
+  `database/commute_vehicles_table.sql`
 
-- Create API
-  api/commute_api.php
+- Create API  
+  `api/commute_api.php`
 
-- Build commute_map.php
-- Setup commute.js
-- Add ETA
-  HOW: distance ÷ speed
+- Build commute page: `modules/commute/commute_map.php`
 
+- Setup `js/commute.js`  
+  HOW: Add ETA calculation (distance ÷ speed) → display vehicle routes
 
+- Test commute system
 
-PHASE 7 – REAL-TIME SYSTEM
-- Setup WebSocket server
-  FILE: realtime/server.js
+---
 
-- Connect:
-  chat.js
-  map.js
-  delivery.js
-  commute.js
+## PHASE 7 – REAL-TIME SYSTEM
+
+- Setup WebSocket server  
+  FILE: `realtime/server.js`
+
+- Connect modules: `chat.js`, `map.js`, `delivery.js`, `commute.js`
 
 - Replace polling with real-time updates
 
+- Test WebSocket connections
 
+---
 
-PHASE 8 – NOTIFICATIONS
-- Import table
-  sql/notifications_table.sql
+## PHASE 8 – NOTIFICATIONS
 
-- Create API
-  api/notifications_api.php
+- Import table  
+  `database/notifications_table.sql`
 
-- Setup notifications.js
+- Create API  
+  `api/notifications_api.php`
 
-- Add alerts:
-  messages, orders, delivery
+- Setup frontend: `js/notifications.js`
 
+- Add alerts: messages, orders, delivery
 
+- Test notifications
 
-PHASE 9 – MONETIZATION
-- Add commission system
-  HOW: Modify items_api.php
+---
 
-- Add delivery fee
-- Add promoted listings
-- Add subscription system
+## PHASE 9 – MONETIZATION
 
+- Add commission system  
+  HOW: Modify `api/items_api.php`
 
+- Add delivery fees, promoted listings, subscriptions
 
-PHASE 10 – ADVANCED FEATURES
-- Add heatmaps (map.js)
-- Add clustering (map.js)
+- Test monetization features
 
-- Expand admin.php
-  HOW: Manage users, reports, data
+---
+
+## PHASE 10 – ADVANCED FEATURES
+
+- Map enhancements: heatmaps, clustering (`js/map.js`)
+
+- Expand admin panel (`pages/admin.php`)  
+  HOW: Manage users, reports, data overview
 
 - Add analytics tracking
 
+---
 
+## PHASE 11 – AI (OPTIONAL)
 
-PHASE 11 – AI (OPTIONAL)
-- Use ai/
-  recommendation.py
-  fraud_detection.py
+- Use AI scripts:  
+  - `ai/recommendation.py`  
+  - `ai/fraud_detection.py`  
+  - `ai/route_optimizer.py`
 
-- Connect via API or exec()
-- Add smart suggestions
+- Connect via API or `exec()`
 
+- Add smart suggestions, route optimization, fraud detection
 
+- Test AI features
 
-PHASE 12 – FUTURE FEATURES
-- Add AR / 3D map
+---
+
+## PHASE 12 – FUTURE FEATURES
+
+- Add AR / 3D maps
+
 - Add facial recognition
-- Add blockchain
-HOW: External APIs / libraries
+
+- Explore blockchain integration  
+  HOW: External APIs / libraries
