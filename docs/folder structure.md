@@ -1,9 +1,11 @@
 IRIS/
 │
-├── core/                     ← NEW (important)
+├── core/
 │   ├── config.php
 │   ├── functions.php
-│   └── helpers.php
+│   ├── helpers.php
+│   ├── database.php          ← NEW (DB connection centralized)
+│   └── response.php          ← NEW (API JSON responses)
 │
 ├── api/
 │   ├── chat_api.php
@@ -14,9 +16,10 @@ IRIS/
 │   ├── rider_location_api.php
 │   ├── posts_api.php
 │   ├── user_status_api.php
-│   ├── users_api.php        ← FIXED (was users.php)
+│   ├── users_api.php
 │   ├── notifications_api.php
-│   └── auth_api.php
+│   ├── auth_api.php
+│   └── upload_api.php        ← NEW (drag-drop uploads)
 │
 ├── auth/
 │   ├── login_handler.php
@@ -29,14 +32,17 @@ IRIS/
 │
 ├── middleware/
 │   ├── auth_middleware.php
-│   └── admin_middleware.php
+│   ├── admin_middleware.php
+│   └── rate_limit.php        ← NEW (basic security)
 │
 ├── realtime/
-│   └── server.js
+│   ├── server.js
+│   └── socket_events.js      ← NEW (chat, notifications)
 │
 ├── ai/
 │   ├── recommendation.py
-│   └── fraud_detection.py
+│   ├── fraud_detection.py
+│   └── route_optimizer.py    ← NEW (commute/delivery AI)
 │
 ├── mail/
 │   ├── send_email.php
@@ -47,15 +53,17 @@ IRIS/
 ├── assets/
 │   ├── icons/
 │   ├── fonts/
-│   └── images/
+│   ├── images/
+│   └── animations/           ← NEW (UI smooth effects)
 │
-├── uploads/                 ← FIXED (was upload/)
+├── uploads/
 │   ├── profile/
 │   ├── items/
 │   ├── food/
-│   └── vehicle_icons/
+│   ├── vehicle_icons/
+│   └── posts/                ← NEW (social feature)
 │
-├── pages/                   ← NEW (IMPORTANT FIX)
+├── pages/
 │   ├── admin.php
 │   ├── home.php
 │   ├── dashboard.php
@@ -66,22 +74,31 @@ IRIS/
 │   ├── forgot_password.php
 │   ├── forgot_username.php
 │   ├── verify_code.php
-│   └── reset_password.php
+│   ├── reset_password.php
+│   └── profile.php           ← NEW (user profile UI)
 │
-├── modules/                 ← NEW (feature grouping)
+├── modules/
 │   ├── commute/
-│   │   └── commute_map.php
+│   │   ├── commute_map.php
+│   │   └── commute_routes.php   ← NEW
 │   │
 │   ├── delivery/
 │   │   ├── delivery_rider.php
-│   │   └── delivery_tracking.php
+│   │   ├── delivery_tracking.php
+│   │   └── delivery_orders.php  ← NEW
 │   │
-│   └── food/
-│       ├── food_cart.php
-│       ├── food_checkout.php
-│       ├── food_item.php
-│       ├── food_market.php
-│       └── food_order_history.php
+│   ├── food/
+│   │   ├── food_cart.php
+│   │   ├── food_checkout.php
+│   │   ├── food_item.php
+│   │   ├── food_market.php
+│   │   └── food_order_history.php
+│   │
+│   └── social/               ← NEW (your “easy features”)
+│       ├── posts.php
+│       ├── comments.php
+│       ├── likes.php
+│       └── feed.php
 │
 ├── css/
 │   ├── admin.css
@@ -93,7 +110,8 @@ IRIS/
 │   ├── market.css
 │   ├── post.css
 │   ├── style.css
-│   └── support.css
+│   ├── support.css
+│   └── darkmode.css         ← NEW
 │
 ├── js/
 │   ├── admin.js
@@ -107,9 +125,12 @@ IRIS/
 │   ├── post.js
 │   ├── user_status.js
 │   ├── support.js
-│   └── notifications.js
+│   ├── notifications.js
+│   ├── darkmode.js          ← NEW
+│   ├── upload.js            ← NEW (drag & drop)
+│   └── animations.js        ← NEW
 │
-├── database/               ← FIXED (better name than sql/)
+├── database/
 │   ├── create_database.sql
 │   ├── users_table.sql
 │   ├── posts_table.sql
@@ -130,11 +151,11 @@ IRIS/
 │   ├── error.log
 │   └── activity.log
 │
-├── docs/                   ← FIXED (was notes/)
+├── docs/
 │   ├── features.md
 │   └── folder_structure.md
 │
-├── index.php               ← ONLY entry point
+├── index.php
 ├── .env
 ├── .htaccess
 └── README.md

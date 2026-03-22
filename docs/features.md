@@ -1,107 +1,118 @@
-EASY FEATURES (Front-end / Basic functionality)
-| Feature                          | Purpose                                                             | Languages / Scripts Used         |
-| -------------------------------- | ------------------------------------------------------------------- | -------------------------------- |
-| Mobile-responsive design         | Works on phones and tablets                                         | HTML, CSS, JS                    |
-| Dark mode toggle                 | Optional light/dark UI                                              | CSS, JS                          |
-| Drag-and-drop uploads            | Profile pictures or food item images                                | JS, HTML                         |
-| Smooth animations & pop-ups      | Enhance UX                                                          | CSS, JS                          |
-| Likes / reactions                | React to statuses or posts                                          | JS, PHP, SQL                     |
-| Commenting                       | Threaded comments on statuses or posts                              | JS, PHP, SQL                     |
-| Public/private status toggle     | Users choose who sees their updates                                 | JS, PHP                          |
-| Favorites / wishlist             | Save items for later purchase                                       | JS, PHP, SQL                     |
-| Marketplace categories & sorting | Filter by popularity, price, distance, or rating                    | JS, PHP, SQL                     |
-| Map filters & layers             | Filter by status, interests, friends, food shops, delivery, commute | JS, Leaflet.js / Google Maps API |
-| Vehicle type display             | Show jeep, bus, bike, or other icons                                | JS, HTML, CSS                    |
-| ETA / arrival updates            | Approximate waiting time for each vehicle                           | JS, PHP, SQL                     |
-| Multi-device login               | Sync user data across phone, tablet, and desktop                    | PHP, SQL, JS                     |
-| Notifications for order updates  | Alerts when food is picked up, near delivery, completed             | JS, PHP, SQL                     |
-| Order history                    | Track past food or item orders                                      | PHP, SQL                         |
-| Checkout system                  | Payment integration or cash-on-delivery option                      | PHP, JS, SQL                     |
-| Story / ephemeral status         | Status disappears after 24 hours                                    | JS, PHP, SQL                     |
-| Hashtags & trending topics       | Tag statuses, items, or food shops for search and trends            | JS, PHP, SQL                     |
+# IRIS System Features
 
+---
 
+## EASY FEATURES (Front-end / Basic Functionality)
 
-MEDIUM FEATURES (Back-end + real-time + interactivity)
-| Feature                        | Purpose                                                            | Languages / Scripts Used              |
-| ------------------------------ | ------------------------------------------------------------------ | ------------------------------------- |
-| WebSocket server               | Real-time updates for chat, statuses, riders, and commute vehicles | Node.js / Socket.IO, JS, PHP          |
-| Live user location             | Show users’ current positions on the map                           | JS, Leaflet.js / Google Maps API, PHP |
-| Route tracking for riders      | Show the exact path delivery riders take                           | JS, PHP, SQL, Maps API                |
-| Rider dashboard                | Riders view orders & update statuses                               | PHP, JS, SQL                          |
-| Rider live tracking            | Users see rider location in real-time                              | JS, WebSocket, PHP                    |
-| Live vehicle tracking          | Users see jeeps/buses moving on the map                            | JS, WebSocket, Maps API, PHP          |
-| Map-based notifications        | Alerts when someone of interest enters nearby area                 | JS, PHP, WebSocket                    |
-| Multi-rider handling           | Multiple riders for one order (optional)                           | PHP, SQL, JS                          |
-| Search & filter features       | Search users, statuses, or marketplace items                       | PHP, JS, SQL                          |
-| User badges / achievements     | Gamification (Top Seller, Popular Poster)                          | PHP, JS, SQL                          |
-| Mini polls / events            | Optional interactive features                                      | PHP, JS                               |
-| Friend/follow system           | Connect users and show friends on the map                          | PHP, JS, SQL                          |
-| Saved searches / alerts        | Notify users when a food item or item appears                      | PHP, JS, SQL                          |
-| Push notifications             | Real-time alerts on mobile and desktop                             | JS, PHP, WebSocket / Service Workers  |
-| Marketplace bidding / auction  | Let users bid on items for sale                                    | PHP, JS, SQL                          |
-| Social challenges / mini-games | Community engagement with map-based games                          | JS, PHP                               |
-| Delivery heatmaps              | Show busiest routes for planning and optimization                  | JS, Maps API, PHP                     |
-| Commute route planning         | Suggest optimal bus/jeep routes for users                          | JS, Maps API, PHP                     |
-| Real-time map clustering       | Automatically group markers for crowded areas                      | JS, Maps API / Leaflet.js, WebSocket  |
+| Feature                          | Purpose                                                      | Languages / Scripts Used |
+|----------------------------------|--------------------------------------------------------------|--------------------------|
+| Mobile-responsive design         | Works on phones and tablets                                  | HTML, CSS, JS            |
+| Dark mode toggle                 | Optional light/dark UI                                       | CSS, JS                  |
+| Drag-and-drop uploads            | Upload profile or food item images                           | JS, HTML                 |
+| Smooth animations & pop-ups      | Enhance user experience                                      | CSS, JS                  |
+| Posts & reactions                | Users create posts and react                                 | JS, PHP, SQL             |
+| Commenting                       | Users comment on posts                                       | JS, PHP, SQL             |
+| Public/private post toggle       | Control who can see posts                                    | JS, PHP                  |
+| Favorites / wishlist             | Save items for later                                         | JS, PHP, SQL             |
+| Marketplace sorting              | Filter by price, rating, or category                         | JS, PHP, SQL             |
+| Map filters & layers             | Filter users, food, delivery, commute                        | JS, Leaflet.js           |
+| Vehicle type display             | Show transport icons (jeep, bus, bike)                       | JS, HTML, CSS            |
+| ETA / arrival updates            | Show estimated arrival time                                  | JS, PHP, SQL             |
+| Multi-device login               | Sync across phone, tablet, desktop                           | PHP, SQL, JS             |
+| Order notifications              | Alerts for delivery updates                                  | JS, PHP, SQL             |
+| Order history                    | Track past orders                                            | PHP, SQL                 |
+| Checkout system                  | Cash-on-delivery or basic payment                            | PHP, JS, SQL             |
+| Story (24-hour posts)            | Posts disappear after 24 hours                               | JS, PHP, SQL             |
+| Hashtags & search                | Tag and find posts/items                                     | JS, PHP, SQL             |
 
+---
 
-ADVANCED FEATURES (Analytics, AI, predictive, optimization)
-| Feature                            | Purpose                                                       | Languages / Scripts Used       |
-| ---------------------------------- | ------------------------------------------------------------- | ------------------------------ |
-| Heatmaps / clustering              | Visualize user density or active areas                        | JS, Maps API / Leaflet.js, PHP |
-| Route optimization for riders      | Suggest fastest path with traffic consideration               | JS, PHP, Maps API              |
-| Auto-location updates              | User or rider location updates every few seconds              | JS, WebSocket, PHP             |
-| Wallet / virtual currency          | Optional system for in-app purchases or transactions          | PHP, SQL, JS                   |
-| Leaderboards                       | Show top users, sellers, or riders                            | PHP, SQL, JS                   |
-| Social event creation              | Users can organize or RSVP to map-based events                | PHP, JS, SQL                   |
-| Group ordering                     | Multiple users can order food together                        | PHP, JS, SQL                   |
-| Analytics export                   | Export trends, orders, or activity for admin review           | PHP, SQL, JS                   |
-| Advanced filtering                 | Filter users, statuses, and items by multiple parameters      | PHP, JS, SQL                   |
-| Multi-admin roles                  | Different admin levels for moderation, analytics, and support | PHP, JS, SQL                   |
-| Scheduled posts / orders           | Users can plan statuses or food deliveries in advance         | PHP, JS, SQL                   |
-| Data backup & restore              | Periodic backups of database and uploaded files               | SQL, PHP                       |
-| Audit logs                         | Track sensitive actions by users and admins                   | PHP, SQL                       |
-| Content moderation tools           | Report / block inappropriate posts, users, or items           | PHP, JS, SQL                   |
-| Smart notifications prioritization | Alert only high-priority events first                         | PHP, JS, WebSocket             |
-| Predictive user engagement         | Suggest activities or posts likely to interest the user       | JS, Python (optional AI), PHP  |
-| AI-based content suggestions       | Recommend statuses, friends, or items based on behavior       | Python (ML), JS, PHP           |
-| AI-powered search                  | Search users, items, or food by image or description          | Python (ML / NLP), JS, PHP     |
-| AI-based fraud detection           | Detect suspicious activity in marketplace or chat             | Python, PHP, SQL               |
+## MEDIUM FEATURES (Back-end + Real-time + Interactivity)
 
+| Feature                     | Purpose                                      | Languages / Scripts Used |
+|-----------------------------|----------------------------------------------|--------------------------|
+| WebSocket server            | Real-time updates (chat, map, delivery)      | Node.js, Socket.IO, JS   |
+| Live user location          | Show users on the map                        | JS, Leaflet.js, PHP      |
+| Rider route tracking        | Show delivery rider paths                    | JS, PHP, SQL             |
+| Rider dashboard             | Manage delivery orders                       | PHP, JS, SQL             |
+| Rider live tracking         | Real-time rider location                     | JS, WebSocket, PHP       |
+| Live vehicle tracking       | Track public transport                       | JS, WebSocket            |
+| Map-based notifications     | Alerts for nearby activity                   | JS, PHP, WebSocket       |
+| Multi-rider handling        | Assign multiple riders per order             | PHP, SQL, JS             |
+| Search & filtering          | Search users, posts, items                   | PHP, JS, SQL             |
+| User badges / achievements  | Gamification system                          | PHP, JS, SQL             |
+| Mini polls / events         | Interactive features                         | PHP, JS                  |
+| Friend / follow system      | Connect users                               | PHP, JS, SQL             |
+| Saved searches / alerts     | Notify users of new items                    | PHP, JS, SQL             |
+| Push notifications          | Real-time alerts                            | JS, Service Workers      |
+| Marketplace bidding         | Auction system for items                     | PHP, JS, SQL             |
+| Social mini-games           | Community engagement                         | JS, PHP                  |
+| Delivery heatmaps           | Show busy delivery areas                     | JS, Maps API             |
+| Commute route planning      | Suggest travel routes                        | JS, Maps API             |
+| Real-time map clustering    | Group markers in dense areas                 | JS, Leaflet.js           |
 
-HARD FEATURES (Cutting-edge / futuristic)
-| Feature                                | Purpose                                                      | Languages / Scripts Used       |
-| -------------------------------------- | ------------------------------------------------------------ | ------------------------------ |
-| Augmented reality (AR) map             | Overlay users, delivery, or items in real-world view         | JS, AR.js / Three.js, PHP      |
-| VR-compatible map view                 | Optional virtual reality mode for map exploration            | JS, WebXR / A-Frame            |
-| Augmented reality checkout             | Scan a QR code at a food stall or store to pay               | JS, AR.js, PHP                 |
-| AI-based delivery rerouting            | Automatically optimize rider route in real-time traffic      | Python (AI/ML), JS, PHP        |
-| Smart friend recommendations           | Suggest friends based on location, interests, and activity   | Python, JS, PHP                |
-| Item/food auto-categorization          | Automatically tag uploaded items or meals                    | Python (AI/ML), PHP, JS        |
-| Facial recognition login               | Secure login using facial biometrics                         | JS, Python (OpenCV / ML), PHP  |
-| AI content moderation                  | Automatically flag offensive posts or comments               | Python (NLP), JS, PHP          |
-| Real-time vehicle capacity tracking    | Track how full jeeps/buses for commute users                 | JS, WebSocket, PHP             |
-| Crowd density alerts                   | Notify users of busy areas or crowded public transport       | JS, WebSocket, PHP             |
-| Predictive marketplace recommendations | Suggest items users might want to buy next                   | Python (AI/ML), PHP, JS        |
-| 3D map views                           | Optional 3D buildings or terrain visualization               | JS, Three.js, Maps API, PHP    |
-| Custom avatar animations               | Animated profile avatars reflecting mood or status           | JS, CSS, PHP                   |
-| Mood detection                         | Suggest emojis or stickers based on user text input          | Python (NLP / ML), JS, PHP     |
-| Blockchain transaction history         | Optional secure logging of marketplace/food payments         | Solidity / Web3.js, PHP, JS    |
-| Multi-rider optimization               | Algorithm assigns multiple deliveries efficiently to riders  | Python (Optimization), JS, PHP |
-| Gamified delivery challenges           | Riders earn points or rewards for fast deliveries            | JS, PHP                        |
-| AI-powered trend predictions           | Forecast popular items, statuses, or events                  | Python (ML), PHP, JS           |
-| Adaptive UI layout                     | Automatically adjusts interface based on device and behavior | JS, CSS, PHP                   |
+---
 
+## ADVANCED FEATURES (Analytics, AI, Optimization)
 
-MONETIZATION FEATURES (Revenue Streams / Profit)
-| Feature                             | Purpose                                                     | Implementation / Tools Used |
-| ----------------------------------- | ----------------------------------------------------------- | --------------------------- |
-| Marketplace commission              | Earn a percentage on each item sold                         | PHP, SQL, JS                |
-| Delivery / service fees             | Charge per food delivery or item delivery                   | PHP, SQL, JS                |
-| Promoted / featured listings        | Vendors pay to highlight items or shops                     | PHP, JS, SQL                |
-| Subscription / premium plans        | Extra perks for users, vendors, or riders                   | PHP, SQL, JS                |
-| In-app purchases / virtual currency | Buy coins/tokens for gifts, badges, or extra features       | PHP, SQL, JS                |
-| Advertising / sponsored markers     | Local businesses or food shops advertise on map or feed     | JS, PHP, HTML               |
-| Data & analytics insights           | Sell anonymized trends and reports to businesses (optional) | PHP, SQL, JS                |
-| Partner / affiliate programs        | Referral fees from food delivery or marketplace partners    | PHP, JS                     |
+| Feature                          | Purpose                              | Languages / Scripts Used |
+|----------------------------------|--------------------------------------|--------------------------|
+| Heatmaps / clustering            | Visualize active areas               | JS, Maps API             |
+| Route optimization               | Suggest faster delivery routes       | JS, PHP                  |
+| Auto-location updates            | Continuous location tracking         | JS, WebSocket            |
+| Wallet system                    | Manage in-app transactions           | PHP, SQL                 |
+| Leaderboards                     | Rank users and riders                | PHP, SQL                 |
+| Social event creation            | Create and join events               | PHP, JS, SQL             |
+| Group ordering                   | Multiple users order together        | PHP, JS, SQL             |
+| Analytics export                 | Export system data                   | PHP, SQL                 |
+| Advanced filtering               | Multi-criteria filtering             | PHP, JS, SQL             |
+| Multi-admin roles                | Role-based admin access              | PHP, SQL                 |
+| Scheduled posts / orders         | Plan future actions                  | PHP, JS, SQL             |
+| Data backup & restore            | Protect system data                  | PHP, SQL                 |
+| Audit logs                       | Track system activity                | PHP, SQL                 |
+| Content moderation               | Report/block users or posts          | PHP, JS, SQL             |
+| Smart notifications              | Prioritize important alerts          | PHP, JS                  |
+| AI recommendations               | Suggest posts/items                  | Python, PHP              |
+| AI-powered search                | Smart search system                  | Python, PHP              |
+| AI fraud detection               | Detect suspicious activity           | Python, PHP, SQL         |
+
+---
+
+## HARD FEATURES (Future Scope)
+
+| Feature                          | Purpose                              | Languages / Scripts Used |
+|----------------------------------|--------------------------------------|--------------------------|
+| AR map                           | Real-world data overlay              | JS, AR.js                |
+| VR map view                      | Virtual map exploration              | JS, WebXR                |
+| AR checkout                      | QR-based payments                    | JS, AR.js, PHP           |
+| AI delivery rerouting            | Optimize routes dynamically          | Python, JS               |
+| Smart friend suggestions         | Recommend users                      | Python                   |
+| Auto item categorization         | Detect item types                    | Python                   |
+| Facial recognition login         | Biometric authentication             | JS, Python               |
+| AI content moderation            | Detect harmful content               | Python                   |
+| Vehicle capacity tracking        | Show transport occupancy             | JS, WebSocket            |
+| Crowd density alerts             | Detect crowded areas                 | JS, WebSocket            |
+| Predictive recommendations       | Suggest items                        | Python                   |
+| 3D map visualization             | Enhanced map display                 | JS, Three.js             |
+| Avatar animations                | Dynamic profile visuals              | JS, CSS                  |
+| Mood detection                   | Suggest emojis based on text         | Python                   |
+| Blockchain transactions          | Secure transaction logs              | Web3.js                  |
+| Multi-rider optimization         | Efficient delivery assignment        | Python                   |
+| Gamified delivery system         | Rewards for riders                   | JS, PHP                  |
+| AI trend prediction              | Forecast trends                      | Python                   |
+| Adaptive UI                      | Dynamic interface adjustment         | JS, CSS                  |
+
+---
+
+## MONETIZATION FEATURES
+
+| Feature                      | Purpose                          | Implementation |
+|------------------------------|----------------------------------|----------------|
+| Marketplace commission       | Earn per transaction             | PHP, SQL       |
+| Delivery fees                | Charge per delivery              | PHP, SQL       |
+| Featured listings            | Paid promotions                  | PHP, JS        |
+| Subscription plans           | Premium features                 | PHP, SQL       |
+| In-app currency              | Virtual coins                    | PHP, SQL       |
+| Ads / sponsored content      | Business promotion               | JS, PHP        |
+| Data analytics insights      | Sell system data                 | PHP, SQL       |
+| Affiliate programs           | Referral earnings                | PHP            |
